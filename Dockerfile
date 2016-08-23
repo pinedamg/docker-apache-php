@@ -14,7 +14,6 @@ RUN apt-get -y install php5 \
     php5-curl php5-json
 
 #CONFIG PHPXDEBUG
-RUN echo "zend_extension=/usr/lib/php5/20121212/xdebug.so" > /etc/php5/cli/conf.d/20-xdebug.ini
 RUN echo "xdebug.remote_host=192.168.0.100" >> /etc/php5/cli/conf.d/20-xdebug.ini
 RUN echo "xdebug.idekey=phpstorm" >> /etc/php5/cli/conf.d/20-xdebug.ini
 RUN echo "xdebug.remote_enable=On" >> /etc/php5/cli/conf.d/20-xdebug.ini
@@ -27,7 +26,7 @@ RUN apt-get update && apt-get install -y cron rsyslog
 RUN apt-get update && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #INSTALL SENDMAIL
-RUN apt-get update && apt-get install -y sendmail
+RUN apt-get update && apt-get install -y sendmail-bin
 ADD sendmail.sh /root/bin/sendmail.sh
 RUN echo "sh /root/bin/sendmail.sh &> /dev/null" >> /root/.bashrc
 
