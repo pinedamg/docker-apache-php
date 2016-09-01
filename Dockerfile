@@ -13,6 +13,8 @@ RUN apt-get -y install php5 \
     php5-imap php5-xdebug \
     php5-curl php5-json
 
+RUN php5enmod mcrypt
+
 #CONFIG PHPXDEBUG
 RUN echo "xdebug.remote_host=192.168.0.100" >> /etc/php5/cli/conf.d/20-xdebug.ini
 RUN echo "xdebug.idekey=phpstorm" >> /etc/php5/cli/conf.d/20-xdebug.ini
