@@ -35,4 +35,8 @@ RUN echo "sh /root/bin/sendmail.sh &> /dev/null" >> /root/.bashrc
 #INSTALL MYSQL CLIENT
 RUN apt-get update && apt-get install -y mysql-client
 
+#ADD ALIASES
+COPY ./aliases /root/aliases
+RUN cat /root/aliases >> /root/.bash_aliases && rm -f /root/aliases
+
 RUN apt-get update && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*RUN apt-get update && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
