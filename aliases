@@ -1,0 +1,5 @@
+#PHP ALIASES
+alias cd-php="cd /etc/php5"
+alias vim-ini-apache="vim /etc/php5/apache/php.ini"
+alias vim-ini-cli="vim /etc/php5/cli/php.ini"
+
